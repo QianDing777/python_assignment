@@ -29,7 +29,7 @@ print(f"The mean of the 3 numbers is {mean_result}.")
 #Q3 Only the words: Create a program that identifies all of the words in a string entered by a user. Begin by writing a function that takes a string of text as its only parameter. Your function should return a list of the words in the string with the punctuation marks removed. Punctuation marks include commas, periods, question marks, hyphens, apostrophes, exclamation points, colons, and semicolons.
 #hint: string
 
-#Q3-2 method 1
+#Q3-1 method 1
 import string
 my_string1=str(input("Write a sentence here: "))
 def keep_word(my_string1):
@@ -39,7 +39,7 @@ def keep_word(my_string1):
 result1=keep_word(my_string1)
 print(f"After removing all punctuation, the sentence is {result1}.")
 
-#Q3-1 method 2
+#Q3-2 method 2
 my_string2=input("My setence is: ")
 def remove_punc_marks(input_string):
     puncutation='''!()-[]{};:'"\,<>./?@#$%^&*_~'''
