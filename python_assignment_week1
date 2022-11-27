@@ -1,0 +1,133 @@
+#Q1 Create a program that reads two integers, a and b, from the user. Your program should compute and display:
+#Q1-1 The sum of a and b
+#Q1-2 The difference when b is subtracted from a
+#Q1-3 The product of a and b
+#Q1-4 The quotient when a is divided by b
+#Q1-5 The remainder when a is divided by b
+#Q1-6  The result of $log_{10}a
+#Q1-7 The result of a^b
+
+#Q1
+a=int(input("Pur in the first number: "))
+b=int(input("Pur in the second number: "))
+
+#Q1-1
+the_sum=a+b
+print(f"The sum of the two numbers is {the_sum}.")
+
+#Q1-2
+the_subtraction=a-b
+print(f"The substraction of the two numbers is {the_subtraction}.")
+
+#Q1-3
+the_prodduct=a*b
+print(f"The product of the two numbers is {the_prodduct}.")
+
+#Q-4
+the_quotient=a/b
+print(f"The quotient of the two numbers is {the_quotient}.")
+
+#Q1-5
+the_remainder=a%b
+print(f"The remainder of the two numbers is {the_remainder}.")
+
+#Q1-6
+import math
+the_log=math.log(a)
+print(f"The result of logarithm base 10 of a is {the_log}.")
+
+#Q1-7
+the_square=a**b
+print(f"The result a^b is {the_square}.")
+
+##########
+#Q2 In the US, fuel efficiency for vehicles is normally expressed in miles-per-gallon (MPG). In Canada, fuel efficiency is normally expressed in liters-per-hundred-kilometers (L/100 km). Use your research skills to determine how to convert from MPG to L/100 km. Then create a program that reads a value from the user (in American units) and displays the equivalent fuel efficiency in Canadian units.
+
+MPG = float(input("Put in the miles per gallon to convert into km/100L: "))
+result = MPG * 282.48
+print("That is is " + str(round(result, 2)) + "km/100L")
+
+##########
+#Q3.1 Create a program that allows the user to enter the latitude and longitude of two points on the Earth in degrees. Your program should display the distance between the points in kilometers.
+#Q3.2 Also assuming we travel using an aeroplane that is moving at a minimum speed of `740 km/h` how long will it take us to travel that distance?
+
+# city1-Shihezi, China (my home town): lat-44.3065, long-86.0789
+# City2-Stockholm, Sweden: lat-59.3293, long-18.0686
+
+#Q3.1
+import math
+lat1=float(input("Put in the latitude of the first location: "))
+long1=float(input("Put in the longitude of the first location: "))
+lat2=float(input("Put in the latitude of the second location: "))
+long2=float(input("Put in the longitude of the second location: "))
+
+#convert latitude and longitude to radians in this case
+lat1=math.radians(lat1) 
+long1=math.radians(long1)
+lat2=math.radians(lat2)
+long2=math.radians(long2)
+
+distance=6371.01*math.acos(math.sin(lat1)*math.sin(lat2)+math.cos(lat1)*math.cos(lat2)*math.cos(long1-long2))
+pint(f"The distance between the two locations is {distance} km.")
+
+#Q3.2
+time_needed=round(distance/740,3)
+print(f"It will take you {time_needed}h to travel to there")
+
+##########
+#Q4 Distance units: Create a program that begins by reading a measurement from the user in feet. Then your program should display the equivalent distance in inches, yards and miles. Use your research skills to look up the necessary conversion factors.
+measure_in_feet=float(input("Put in a value in feet: "))
+measure_in_inches=measure_in_feet*12
+measure_in_yards=measure_in_feet/3
+measure_in_miles=measure_in_feet/5280
+print(f"The value in inches is {measure_in_inches}.")
+print(f"The value in inches is {measure_in_yards}.")
+print(f"The value in inches is {measure_in_miles}.")
+print(f"The value in other unites are {measure_in_inches} inches, {measure_in_yards} yards, and {measure_in_miles} miles.")
+
+##########
+#Q5 Area of a regular polygon: A polygon is regular if its sides are all the same length and the angles between all of the adjacent sides are equal. Write a program that reads s and n from the user and then displays the area of a regular polygon constructed from these values.
+length_of_side=float(input("Put in the length of a side of a regular polygon (cm): "))
+number_of_sides=int(input("Put in the number of sides of a regular polygon: "))
+s=length_of_side
+n=number_of_sides
+import math
+area=round(n*s**2/(4*math.tan(math.pi/n)),2)
+print(f"The area of the regular polygon is {area} cm^2.")
+
+##########
+#Q6 Current Time: Python has a couple of modules that can be used when working with time. This includes a module called time and a function/method within the time module called asctime. It reads the current time from the computer’s internal clock and returns it in a human-readable format. Write a program that displays the current time and date. Your program will not require any input from the user.
+import time
+current_time=time.asctime()
+print(f"The current time is {current_time}, work harder!")
+
+##########
+#Q7 Write a program that begins by reading the air temperature and wind speed from the user. Once these values have been read, your program should display the wind chill index rounded to the closes integer.
+air_temp=float(input("Put in the air tempreture: "))
+wind_speed=float(input("Pu in the wind speed: "))
+wind_chill_index=round(13.12+air_temp*0.6215-wind_speed**0.16*11.37+air_temp*wind_speed**0.16*0.3965,3)
+print(f"The WCI is {wind_chill_index}")
+
+##########
+#Q8 TEASER/BONUS QUESTION: Sum of digits in an integer: Develop a program that reads a four digit integer from the user and displays the sum of the digits in the number. For example, if the user enters 3141 then your program should display the result of the sum 3+1+4+1=9.
+#Q8 method 1
+import math
+digit_string=input("Put in a 4 digit integer: ")
+digit_string_with_space=""
+for digit in digit_string:
+    digit_string_with_space += f"{digit},"
+new_form=digit_string_with_space.split(",")
+del new_form[-1]    #removing the last , from the string
+new_form_tuple = tuple(new_form)
+tuple_of_integers = tuple(int(item) for item in new_form_tuple)
+print(sum(tuple_of_integers))
+
+#Q8 method 2
+digit_string = input("Put in a 4 digit integer: ")
+value = 0
+for i in digit_string:
+    value += int(i)
+print(f"The sum is: {value}")
+
+
+
