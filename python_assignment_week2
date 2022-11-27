@@ -2,7 +2,20 @@
 # Q1.1 Collecting the inputs for the problem. Convert the inputs to the relevant types they should be.
 # Q1.2 Calculating the equation given the inputs from the above.
 # Q1.3 Printing your result in a preformatted string.
+import math
+lat1=float(input("Put in the latitude of the first location: "))
+long1=float(input("Put in the longitude of the first location: "))
+lat2=float(input("Put in the latitude of the second location: "))
+long2=float(input("Put in the longitude of the second location: "))
 
+#convert latitude and longitude to radians in this case
+lat1=math.radians(lat1)
+long1=math.radians(long1)
+lat2=math.radians(lat2)
+long2=math.radians(long2)
+
+distance=6371.01*math.acos(math.sin(lat1)*math.sin(lat2)+math.cos(lat1)*math.cos(lat2)*math.cos(long1-long2))
+print(f"The distance between the two locations is {distance} km.")
 
 
 #Q2 Write a function that takes three numbers as parameters, and returns the mean value of those parameters as its result. Include a main program that reads three values from the user and displays their mean.
@@ -15,7 +28,8 @@ print(f"The mean of the 3 numbers is {mean_result}.")
 
 #Q3 Only the words: Create a program that identifies all of the words in a string entered by a user. Begin by writing a function that takes a string of text as its only parameter. Your function should return a list of the words in the string with the punctuation marks removed. Punctuation marks include commas, periods, question marks, hyphens, apostrophes, exclamation points, colons, and semicolons.
 #hint: string
-my_string=input("My setence is: ")
+#Q3-1 method 1
+my_string1=input("My setence is: ")
 def remove_punc_marks(input_string):
     puncutation='''!()-[]{};:'"\,<>./?@#$%^&*_~'''
     for punc in input_string:
@@ -26,7 +40,7 @@ result=remove_punc_marks(my_string)
 print(result)
 
 
-#Q3 method 2
+#Q3-2 method 2
 import string
 my_string=str(input("Write a sentence here: "))
 for punctuation in string.punctuation:
