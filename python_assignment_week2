@@ -52,7 +52,7 @@ print(result2)
 
 
 
-#Q4 4. Create a program that will serve as a class database and will allow users to add names and scores to the database. For each name and score that is added, print the dictionary database for the user.
+#Q4 Create a program that will serve as a class database and will allow users to add names and scores to the database. For each name and score that is added, print the dictionary database for the user.
 #Further Work:
 #1. Add an improvement to subtract scores from a given user.
 #2. Add an improvement to save the database to a local file.
@@ -69,3 +69,14 @@ while True:
     elif prompt_again == "n":
         break
 print(f"The user database is {user_database}.")
+
+#Q5 A prime number is an integer greater than 1 that is only divisible by one and itself. Write a function that determines whether or not its parameter is prime, returning True if it is and False otherwise. Write a main program that reads an integer from the user and displays a message indicating whether or not it is a prime. Ensure tht the main program will not run if the file containing your solution is imported into another program.
+def check_prime(my_num):
+    if my_num>1:
+        for i in range (2, my_num//2):
+            if (my_num % i)==0:
+                print(my_num, "is not a prime number.")
+                return False
+            print(my_num, "is a prime number.")
+            return True
+check_prime(int(input("Put in a number to check if it is a prime number: ")))
