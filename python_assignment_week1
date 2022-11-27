@@ -68,7 +68,7 @@ lat2=math.radians(lat2)
 long2=math.radians(long2)
 
 distance=6371.01*math.acos(math.sin(lat1)*math.sin(lat2)+math.cos(lat1)*math.cos(lat2)*math.cos(long1-long2))
-pint(f"The distance between the two locations is {distance} km.")
+print(f"The distance between the two locations is {distance} km.")
 
 #Q3.2
 time_needed=round(distance/740,3)
