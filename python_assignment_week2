@@ -46,7 +46,7 @@ def remove_punc_marks(input_string):
     for punc in input_string:
         if punc in puncutation:
             input_string=input_string.replace(punc, "")
-            return input_string
+return input_string
 result2=remove_punc_marks(my_string2)
 print(result2)
 
