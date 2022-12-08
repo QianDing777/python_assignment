@@ -1,0 +1,175 @@
+#Q1 Write a program that reads an integer from the user. Then your program should display a message indicating whether the integer is even or odd and if the number is a prime or a non-prime
+
+my_num=int(input("Write a number here: "))
+def read_num(my_num):
+    if my_num>1:
+        for i in range(1,my_num+1):
+            if my_num % i != 0 and my_num % 2 != 0:
+                return "The number is a prime and odd."
+            elif my_num==2:
+                return "The number is a prime and even."
+            elif my_num % i == 0 and my_num % 2 == 0:
+                return "The number is composite and even"
+            elif my_num % i == 0 and my_num % 2 != 0:
+                return "The number is composite and odd"
+    elif my_num==1:
+        return "The number is only an odd number."
+    elif my_num==0:
+        return "The number is neither prime or composite, it's 0."
+    elif my_num%2==0:
+        return "The number is even."
+    else:
+        return "The number is odd."
+print(read_num(my_num))
+
+
+#Q2 A program of quadratic function, equation:a
+
+a=float(input("Put in the 1st number: "))
+b=float(input("Put in the 2nd number: "))
+c=float(input("Put in the 3rd number: "))
+def compute_roots(a,b,c):
+    if a < 0 or b < 0 or c < 0:
+        return "You need to put in non-zero constants."
+    elif b**2-4*a*c <0:
+        return "The quadratic equation does not have any real roots."
+    elif (b**2-4*a*c-b)/(2*a)==0:
+        return "The quadratic equation has one real root."
+    else:
+        return "The quadratic equation has two real roots."
+print(compute_roots(a,b,c))
+
+
+#Q3 A program that computes the average of a collection of values entered by the use. The user will enter 0 as a sentinel value to indicate that no further values will be provided. Your program should display an appropriate error message if the first value entered by the user is 0.
+
+total = 0
+count = 0
+while True:
+    my_num = float(input("put in numbers here:"))
+    if my_num == 0:
+        print("End of input")
+        break
+    total += my_num
+    count += 1
+print (f"The average of the numbers you put in is {total/count}")
+
+
+#Q4 A program that displays a temperature conversion table for degrees Celsius and degrees Fahrenheit
+#C = (5/9) * (F - 32)
+#F=(9*C+(32*5))/5
+
+C=[c for c in range(1,101)]
+F=[]
+for c in C:
+    f=(9*c+(32*5))/5
+    F.append(f)
+    c+=1
+keys=C
+values=F
+temperature_table=dict(zip(keys, values))
+print("Celsius", "Fahrenheit")
+for k,v in temperature_table.items():
+    Celsius=k
+    Fahrenheit=v
+    print(F"{Celsius},\t    {Fahrenheit}")
+
+
+#Q5 Zoo price: Guests 2 years of age and less are admitted without charge. Children between 3 and 12 years of age cost $14.00. Seniors aged 65 years and over cost $18.00. Admission for all other guests is $23.00.
+
+#method 1
+cost=0
+while True:
+    cst_age=input("Put in the age of your guest: ")
+    if cst_age == "":
+        print (cost)
+        break
+    if int(cst_age) <= 2:
+        cost += 0
+    if int(cst_age) >= 3 and int(cst_age) <= 12:
+        cost += 14
+    if int(cst_age) >= 65:
+        cost+= 18
+    if int(cst_age) > 12 and int(cst_age) < 65:
+        cost += 23
+        print(cost)
+
+
+# Q6 A function that takes the lengths of the two shorter sides of a right triangle as its parameters
+
+import math
+a = float(input("Put in the length of one side: "))
+b = float(input("Put in the length of another side: "))
+def cal_hypotenuse(a,b):
+    return math.sqrt(a**2+b**2)
+result=cal_hypotenuse(a,b)
+print(f"The hypotenuse is {result}")
+
+
+# Q7 Shipping cost calculator: shipping for many of its items at a rate of $10.95 for the first item, and $2.95 for each subsequent item
+
+# method 1
+def sum_sub(num_item):
+    return 2.95*(num_item-1)
+
+def get_items():
+    return int(input("How many items to ship: "))
+
+def sum_total():
+    return 10.95+sum_sub(get_items())
+
+print(f"Your total shipping cost is ${sum_total()}.")
+
+# method 2
+def sum_sub(num_item):
+    base_cost = 10.95
+    if num_item == 1:
+        return base_cost
+    elif num_item > 1:
+        return base_cost + (2.95 * (num_item - 1))
+
+def print_shipping_cost(total_sum):
+    print(f"Your total shipping cost is ${total_sum}.")
+    print("--------------------------")
+
+def get_items():
+    while True:
+        num_item = int(input("How many items to ship: "))
+        total_sum = sum_sub(num_item)
+        print_shipping_cost(total_sum)
+        break
+get_items()
+
+
+# Q8 A function that determines whether or not a password is good, a good password to be one that is at least 8 characters long and contains at least one uppercase letter, at least one lowercase letter, and at least one number
+
+pw=input("put in your pw: ")
+pw=list(pw)
+check_len = False
+if len(pw) >= 8:
+    check_len = True
+
+check_digit = False
+for i in pw:
+    if i.isdigit():
+        check_digit = True
+
+    check_uppercase = False
+    for i in pw:
+        if i.isupper():
+            check_uppercase = True
+
+    check_lowercase = False
+    for i in pw:
+        if i.islower():
+            check_lowercase = True
+
+if check_len and check_digit and check_uppercase and check_lowercase:
+    print("Your pw is valid")
+else:
+    print("Your pw is not valid. \nAt least 8 char, 1 number, 1 upper and 1 lower letter is needed.")
+
+
+
+
+
+
