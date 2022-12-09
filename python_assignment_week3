@@ -76,22 +76,25 @@ for k,v in temperature_table.items():
 
 #Q5 Zoo price: Guests 2 years of age and less are admitted without charge. Children between 3 and 12 years of age cost $14.00. Seniors aged 65 years and over cost $18.00. Admission for all other guests is $23.00.
 
-#method 1
 cost=0
+num_guest=0
 while True:
     cst_age=input("Put in the age of your guest: ")
     if cst_age == "":
-        print (cost)
         break
-    if int(cst_age) <= 2:
+    elif int(cst_age) <= 2:
         cost += 0
-    if int(cst_age) >= 3 and int(cst_age) <= 12:
+        num_guest += 1
+    elif int(cst_age) >= 3 and int(cst_age) <= 12:
         cost += 14
-    if int(cst_age) >= 65:
+        num_guest += 1
+    elif int(cst_age) >= 65:
         cost+= 18
-    if int(cst_age) > 12 and int(cst_age) < 65:
+        num_guest += 1
+    else:
         cost += 23
-        print(cost)
+        num_guest += 1
+print(f"You have {num_guest} people. Your cost is ${cost}.")
 
 
 # Q6 A function that takes the lengths of the two shorter sides of a right triangle as its parameters
