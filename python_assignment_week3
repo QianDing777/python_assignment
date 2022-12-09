@@ -58,7 +58,7 @@ print (f"The average of the numbers you put in is {total/count}")
 #C = (5/9) * (F - 32)
 #F=(9*C+(32*5))/5
 
-C=[c for c in range(0,100,10)]
+C=[c for c in range(0,101,10)]
 F=[]
 for c in C:
     f=(9*c+(32*5))/5
@@ -71,7 +71,7 @@ print("Celsius", "Fahrenheit")
 for k,v in temperature_table.items():
     Celsius=k
     Fahrenheit=v
-    print(F"{Celsius},\t    {Fahrenheit}")
+    print(F"{Celsius}\t    {Fahrenheit}")
 
 
 #Q5 Zoo price: Guests 2 years of age and less are admitted without charge. Children between 3 and 12 years of age cost $14.00. Seniors aged 65 years and over cost $18.00. Admission for all other guests is $23.00.
